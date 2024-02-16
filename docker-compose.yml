@@ -1,0 +1,24 @@
+version: "3.5"
+services:
+  app:
+    image: filebrowser/filebrowser
+    restart: unless-stopped
+    volumes:
+      - db_data:/database
+      - app_data:/srv
+    networks:
+      proxy_apps:
+    labels:
+      backups: "false"
+    dns:
+      - "1.1.1.1"
+      - "1.0.0.1"
+
+volumes:
+  db_data:
+  app_data:
+
+networks:
+  proxy_apps:
+    name: proxy_apps
+    external: true
