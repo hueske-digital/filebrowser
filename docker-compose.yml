@@ -8,8 +8,6 @@ services:
       - app_data:/srv
     networks:
       proxy_apps:
-    labels:
-      backups: "false"
     dns:
       - "1.1.1.1"
       - "1.0.0.1"
