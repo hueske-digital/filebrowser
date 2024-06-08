@@ -5,7 +5,8 @@ services:
     restart: unless-stopped
     user: "1000:1000"
     volumes:
-      - db_data:/database
+      - $PWD/database.db:/database.db
+      - $PWD/filebrowser.json:/.filebrowser.json
       - app_data:/srv
     networks:
       proxy_apps:
@@ -13,7 +14,6 @@ services:
       backups: "true"
 
 volumes:
-  db_data:
   app_data:
 
 networks:
