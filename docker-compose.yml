@@ -3,6 +3,7 @@ services:
   app:
     image: filebrowser/filebrowser
     restart: unless-stopped
+    user: "1000:1000"
     volumes:
       - db_data:/database
       - app_data:/srv
